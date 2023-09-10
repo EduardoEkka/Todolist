@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <label for="textInput">Enter task:</label>
+    <input type="text" id="textInput">
+    <button class="button0">Add</button>
+    <div class="tasks"></div>
+    <script>
+        var input = document.getElementById("textInput");
+        var container = document.querySelector(".tasks");
+        var submit = document.querySelector(".button0");
+        submit.addEventListener("click", function () {
+            const div1 = document.createElement('div');
+            const e = document.createElement('p');
+            e.innerHTML = input.value;
+            div1.appendChild(e);
+            const b = document.createElement('button');
+            b.innerHTML = "X";
+            div1.appendChild(b);
+            b.style.height = "10%";
+            b.style.top = "10%";
+            b.style.backgroundColor="red";
+            container.appendChild(div1);
+            div1.style.display = "flex";
+            div1.style.justifyContent = "space-between";
+            div1.style.alignItems = "center";
+            div1.style.marginBottom = "10px";
+            b.addEventListener("click", function () {
+                e.innerHTML = "";
+                container.removeChild(div1);
+            })
+        });
+    </script>
+</body>
+
+</html>
